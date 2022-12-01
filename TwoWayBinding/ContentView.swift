@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var pressCount = 0
+    @State private var toggleIsOn = true
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            
+            Text("Press Count: \(pressCount)")
+                
+                
+            Button("Press Me"){
+                pressCount += 1
+            }.buttonStyle(.borderedProminent)
+            
+            Toggle("Toggle:", isOn: $toggleIsOn)
         }
+        .font(.title2)
         .padding()
     }
 }
